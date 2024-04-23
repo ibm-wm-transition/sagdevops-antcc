@@ -90,7 +90,7 @@ pipeline {
     environment {
     	CC_TAG = 10.4
     	ANTCC_BRANCH="release/104apr2019"
-        CC_INSTALLER_URL = "http://aquarius-bg.eur.ad.sag/cc/installers" // internal download site
+        CC_INSTALLER_URL = "http://aquarius-eu.infra.webmethods.io/cc/installers" // internal download site
         CC_ENV_FILE = "tests/test.properties"
         CC_PASSWORD = "manage"
         CC_VERSION = "${env.CC_TAG}-latest"
