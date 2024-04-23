@@ -12,7 +12,7 @@ pipeline {
     agent { label 'master' }
 
     environment {
-        INSTALLER_URL = "http://aquarius-bg.eur.ad.sag/cc/installers" // internal download site
+        INSTALLER_URL = "http://aquarius-eu.infra.webmethods.io/cc/installers" // internal download site
     }
     options {
         buildDiscarder(logRotator(numToKeepStr:'10'))
