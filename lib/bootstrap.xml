@@ -435,7 +435,7 @@ ant stopcc                       Stop local Command Central server
 	
 	<target name="_downloadBat" unless="skipWin">
 		<mkdir dir="${installer.dir}" />
-		<get src="${installer.url}/${installer}.bat.SHA-256" dest="${installer.dir}" usetimestamp="true" maxtime="180" />
+		<get src="${installer.url}/${installer}.bat.SHA-256" dest="${installer.dir}" usetimestamp="true" maxtime="360" />
 		<antcall target="_downloadOnlyBat" />
 		<available file="${installer.dir}/${installer}.bat" property="skipExe" />
 		<checksum file="${installer.dir}/${installer}.bat" algorithm="SHA-256" verifyProperty="isSHAok"/>
@@ -464,7 +464,7 @@ ant stopcc                       Stop local Command Central server
 
 	<target name="_downloadExe" if="downloadExe">
         <mkdir dir="${installer.dir}" />
-        <get src="${installer.url}/${installer}.exe.SHA-256" dest="${installer.dir}" usetimestamp="true" maxtime="180" />
+        <get src="${installer.url}/${installer}.exe.SHA-256" dest="${installer.dir}" usetimestamp="true" maxtime="360" />
 		<antcall target="_downloadOnlyExe" />
 	    <available file="${installer.dir}/${installer}.exe" property="skipZip" />
 		<checksum file="${installer.dir}/${installer}.exe" algorithm="SHA-256" verifyProperty="isSHAok"/>
@@ -500,7 +500,7 @@ ant stopcc                       Stop local Command Central server
 		</tstamp>
 		<echo>the bootstrapper start download time is ${start_download_time}</echo>
 		<retry retrycount="3">
-			<get src="${installer.url}/${installer}.bat" dest="${installer.dir}" usetimestamp="true" maxtime="180" />
+			<get src="${installer.url}/${installer}.bat" dest="${installer.dir}" usetimestamp="true" maxtime="360" />
 		</retry>
 		<tstamp>
 			<format property="end_download_time" pattern="HH:mm:ss:sss zzz" />
@@ -516,7 +516,7 @@ ant stopcc                       Stop local Command Central server
 	  </tstamp>
 	  <echo>the bootstrapper start download time is ${start_download_time}</echo>
 		<retry retrycount="3">
-	       <get src="${installer.url}/${installer}.exe" dest="${installer.dir}" usetimestamp="true" maxtime="180" />
+	       <get src="${installer.url}/${installer}.exe" dest="${installer.dir}" usetimestamp="true" maxtime="360" />
 		</retry>
 	  <tstamp>
 		<format property="end_download_time" pattern="HH:mm:ss:sss zzz" />
